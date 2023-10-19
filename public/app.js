@@ -1,10 +1,13 @@
 console.log("here");
-fetch("/things").then((response) => {
-  return response.json;
-});
-.then((thing)=>{
-    for(let thing of thing){
-        const p = document.createElement("p")
-        p.innerText
+fetch("/things")
+  .then((response) => {
+    return response.json();
+  })
+  .then((things) => {
+    console.log(things);
+    for (let thing of things) {
+      const p = document.createElement("p");
+      p.innerText = thing.num;
+      document.body.append(p);
     }
-})
+  });

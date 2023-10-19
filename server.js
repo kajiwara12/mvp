@@ -2,6 +2,7 @@ import express from "express";
 import pg from "pg";
 import dotenv from "dotenv";
 dotenv.config();
+const app = express();
 
 const { PORT, DATABASE_URL } = process.env;
 const client = new pg.Client({
@@ -10,11 +11,9 @@ const client = new pg.Client({
 await client.connect();
 app.use(express.static("public"));
 
-const app = express();
-
 app.get("/things", (req, res) => {
   client.query("SELECT * FROM thing").then((result) => {
-    res.send(result.rows);
+    res.json(result.rows);
   });
 });
 
