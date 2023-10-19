@@ -8,6 +8,7 @@ const client = new pg.Client({
   connectionString: DATABASE_URL,
 });
 await client.connect();
+app.use(express.static("public"));
 
 const app = express();
 
