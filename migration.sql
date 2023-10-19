@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS thing
+CREATE TABLE thing(
+    id SERIAL PRIMARY KEY,
+    num INTEGER
+);
+
+INSERT INTO thing (num) VALUES(25);
+INSERT INTO thing (num) VALUES(90);
