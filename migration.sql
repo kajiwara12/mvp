@@ -4,5 +4,3 @@ CREATE TABLE thing(
     num INTEGER
 );
 
-INSERT INTO thing (num) VALUES(25);
-INSERT INTO thing (num) VALUES(90);
