@@ -1,9 +1,9 @@
 import express from "express";
 import pg from "pg";
 import dotenv from "dotenv";
+dotenv.config();
 
 const { PORT, DATABASE_URL } = process.env;
-dotenv.config();
 const client = new pg.Client({
   connectionString: DATABASE_URL,
 });
