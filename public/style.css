@@ -1,15 +1,25 @@
 #container {
   display: flex;
 }
-.gameArea {
-  background-color: aqua;
-  width: 40%;
-  height: 40%;
-}
 .scoreBoard {
   background-color: olivedrab;
   width: 20%;
   height: 20%;
+}
+.gameArea {
+  display: flex;
+  background-color: aqua;
+  width: 40%;
+  height: 40%;
+}
+.spot {
+  background-color: white;
+  width: 5%;
+  height: 5%;
+  margin-top: 2px;
+  padding: 5px;
+  margin-bottom: 0;
+  margin-left: 5px;
 }
 .letterArea {
   display: flex;
