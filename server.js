@@ -11,8 +11,8 @@ const client = new pg.Client({
 await client.connect();
 app.use(express.static("public"));
 
-app.get("/things", (req, res) => {
-  client.query("SELECT * FROM thing").then((result) => {
+app.get("/player", (req, res) => {
+  client.query("SELECT * FROM player").then((result) => {
     res.json(result.rows);
   });
 });

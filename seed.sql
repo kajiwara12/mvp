@@ -1,2 +1,7 @@
-INSERT INTO thing (num) VALUES(25);
-INSERT INTO thing (num) VALUES(90);
+INSERT INTO player (name) VALUES ('john'),
+('nick'),
+('mike'),
+('ben'),
+('jacob'),
+('greg'),
+('scott');

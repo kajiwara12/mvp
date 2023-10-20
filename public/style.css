@@ -6,12 +6,17 @@
   width: 40%;
   height: 40%;
 }
+.scoreBoard {
+  background-color: olivedrab;
+  width: 20%;
+  height: 20%;
+}
 .letterArea {
   display: flex;
   flex-wrap: wrap;
   background-color: burlywood;
-  width: 60%;
-  height: 60%;
+  width: 40%;
+  height: 40%;
 }
 .letter {
   background-color: chartreuse;
