@@ -8,17 +8,31 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div id="popup" class="popup">
+      <h2 id="lossScore">You Lose!</h2>
+      <p>Please enter you name:</p>
+      <form class="name-form">
+        <label for="name"></label>
+        <input type="text" name="name" id="name"/>
+        <button type="submit">Create Player</button>
+      </form>
+    </div>
     <div class="scoreBoard">
       <h3>The top 5 Scores:</h3>
     </div>
+    
     <div id="container">
       <canvas id="myCanvas" height="200" width="200"</canvas></canvas>
       <div class="gameArea">
-        <div id="header">Wrong Guesses:0/6</div>
+        <h3 id="header">Wrong Guesses:0/6</h3>
+        <h3 id ="scoreDisplay">Current Score:</h3>
         <div id="wordArea"></div>
       </div>
-      <div class="letterArea">
+      <div class ="box">
         <h3>Press the buttons to guess what letters are in the word!</h3>
+        <div class="letterArea">
+
+        </div>
       </div>
     </div>
   </body>

@@ -4,18 +4,23 @@ let letterArea = document.querySelector(".letterArea");
 let scoreBoard = document.querySelector(".scoreBoard");
 let wordArea = document.querySelector("#wordArea");
 let guessCounter = document.querySelector("#header");
+let scoreDisplay = document.querySelector("#scoreDisplay");
+let form = document.querySelector(".name-form");
+let lossScore = document.querySelector("#lossScore");
 let globalWord = "";
 let guessWord = "";
 let attempts = 0;
 let rndLngth;
+let score = 0;
 startPage();
 //generate random whole number 5-7
 function generateNumber(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-//create letter buttons----------------------------------
+//create letter buttons ----------------------------------
 function createButtons() {
+  letterArea.innerHTML = "";
   for (let i = 65; i <= 90; i++) {
     let letter = document.createElement("button");
     letter.innerText = String.fromCharCode(i);
@@ -25,7 +30,7 @@ function createButtons() {
   }
 }
 
-//create blank spots based on word length && create 5-7 letter word in game------------------------------------------------------------
+//create blank spots based on word length && create 5-7 letter word in game ------------------------------------------------------------
 function getWord() {
   fetch(`https://random-word-api.herokuapp.com/word?length=${rndLngth}&lang=en`)
     .then((response) => {
@@ -61,6 +66,7 @@ function checkLetter(event) {
       letterInWord = true;
       console.log(guessWord);
       guessDisplay();
+      displayScore();
       checkGame();
     }
   }
@@ -70,6 +76,7 @@ function checkLetter(event) {
     console.log("letter is not in word");
     event.target.classList.add("guessedLetterButton");
     guessDisplay();
+    displayScore();
     checkGame();
   }
 }
@@ -142,7 +149,7 @@ function drawChar(number) {
       break;
   }
 }
-//empty canvas-----------------------------------------------
+//empty canvas -----------------------------------------------
 function clearCanvas() {
   const canvas = document.getElementById("myCanvas");
   const context = canvas.getContext("2d");
@@ -152,10 +159,22 @@ function clearCanvas() {
 function guessDisplay() {
   guessCounter.innerText = `Wrong Guesses: ${attempts}/6 `;
 }
-//check if game won/game over---------------------------------
+//score display      ----------------------------------------------------
+function displayScore() {
+  scoreDisplay.innerText = `Current Score: ${score}`;
+}
+//check if game won/game over ---------------------------------
 function checkGame() {
+  //win----------------------
   if (guessWord.length === globalWord.length) {
     console.log("you win");
+    if (globalWord.length === 5) {
+      score++;
+    } else if (globalWord.length === 6) {
+      score += 2;
+    } else {
+      score += 3;
+    }
     globalWord = "";
     guessWord = "";
     attempts = 0;
@@ -170,12 +189,18 @@ function checkGame() {
     )) {
       letterArea.removeChild(gussedLetterButtons);
     }
+    displayScore();
+    console.log(score);
     startPage();
   }
+  //loss----------------------------------------------------------------------
   if (attempts === 6) {
     console.log("you lose");
     globalWord = "";
     guessWord = "";
+    //popup for when they lose
+    document.getElementById("popup").style.display = "block";
+    lossScore.innerText = `You lose! Score: ${score}`;
     for (guessedLetters of document.querySelectorAll(".spot")) {
       wordArea.removeChild(guessedLetters);
     }
@@ -190,7 +215,7 @@ function checkGame() {
     )) {
       letterArea.removeChild(gussedLetterButtons);
     }
-    startPage();
+    console.log(score);
   }
 }
 // if (globalWord.includes(letter)) {
@@ -203,20 +228,47 @@ function checkGame() {
 //   event.target.classList.add("guessedLetterButton");
 //}
 
-//LeaderBoard evnetually------------------------------------------------
-fetch("/player")
-  .then((response) => {
-    return response.json();
+//LeaderBoard evnetually ------------------------------------------------
+function updateLeaderBoard() {
+  fetch("/player")
+    .then((response) => {
+      return response.json();
+    })
+    .then((players) => {
+      console.log(players);
+      for (names of document.querySelectorAll(".name")) {
+        scoreBoard.removeChild(names);
+      }
+      for (let names of players) {
+        const p = document.createElement("p");
+        p.classList.add("name");
+        p.innerText = `${names.name.toUpperCase()}: ${names.score} points`;
+        scoreBoard.append(p);
+      }
+    });
+}
+//add name and score to database-------------------------------------------------
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  let formData = new FormData(event.target);
+  let name = formData.get("name");
+
+  fetch("player", {
+    method: "POST",
+    body: JSON.stringify({ name: name, score: score }),
+    headers: {
+      "Content-Type": "application/json",
+    },
   })
-  .then((things) => {
-    console.log(things);
-    for (let names of things) {
-      const p = document.createElement("p");
-      p.classList.add("name");
-      p.innerText = names.name;
-      scoreBoard.append(p);
-    }
-  });
+    .then((response) => response.json())
+    .then((name) => {
+      console.log("created name:", name);
+      score = 0;
+      startPage();
+      document.getElementById("popup").style.display = "none";
+    });
+});
+
 function startPage() {
   attempts = 0;
   rndLngth = generateNumber(5, 8);
@@ -226,4 +278,5 @@ function startPage() {
   createButtons();
   drawChar();
   guessDisplay();
+  updateLeaderBoard();
 }

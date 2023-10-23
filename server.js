@@ -10,12 +10,26 @@ const client = new pg.Client({
 });
 await client.connect();
 app.use(express.static("public"));
+app.use(express.json());
 
 app.get("/player", (req, res) => {
   client
-    .query("SELECT * FROM player FETCH FIRST 5 ROWS ONLY")
+    .query("SELECT * FROM player ORDER BY score DESC LIMIT 5")
     .then((result) => {
       res.json(result.rows);
+    });
+});
+
+app.post("/player", (req, res) => {
+  const name = req.body.name;
+  const score = req.body.score;
+  client
+    .query("INSERT INTO player(name,score) VALUES ($1,$2) RETURNING *", [
+      name,
+      score,
+    ])
+    .then((result) => {
+      res.json(result.rows[0]);
     });
 });
 

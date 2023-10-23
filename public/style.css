@@ -3,8 +3,9 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: plum;
+  background-color: mediumaquamarine;
 }
+
 #container {
   display: flex;
   justify-content: center;
@@ -34,7 +35,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 300px;
-  height: 600px;
+  height: 150px;
 }
 #header {
   margin-bottom: 50px;
@@ -48,9 +49,9 @@ body {
   flex-direction: row;
 }
 .spot {
-  font-size: 95%;
-  width: 25px;
-  height: 25px;
+  font-size: 1em;
+  width: 30px;
+  height: 30px;
   margin-top: 2px;
   padding: 2px;
   margin-bottom: 0;
@@ -58,14 +59,24 @@ body {
   opacity: 1;
 }
 .guessedSpot {
-  font-size: 95%;
-  width: 25px;
-  height: 25px;
+  font-size: 1em;
+  width: 30px;
+  height: 30px;
   margin-top: 2px;
   padding: 2px;
   margin-bottom: 0;
   margin-left: 2px;
   opacity: 1;
+}
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 250px;
+  height: 150px;
+  border-radius: 5px;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
 }
 .letterArea {
   display: flex;
@@ -91,4 +102,24 @@ body {
 .guessedLetterButton {
   opacity: 0;
   pointer-events: none;
+}
+.popup {
+  display: none;
+  position: fixed;
+  height: 200px;
+  width: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: seagreen;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.name-form {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
 }
