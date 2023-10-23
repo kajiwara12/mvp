@@ -12,9 +12,11 @@ await client.connect();
 app.use(express.static("public"));
 
 app.get("/player", (req, res) => {
-  client.query("SELECT * FROM player").then((result) => {
-    res.json(result.rows);
-  });
+  client
+    .query("SELECT * FROM player FETCH FIRST 5 ROWS ONLY")
+    .then((result) => {
+      res.json(result.rows);
+    });
 });
 
 app.listen(PORT, () => {

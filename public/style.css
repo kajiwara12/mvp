@@ -1,36 +1,94 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: plum;
+}
 #container {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: azure;
+  border-radius: 10px;
+  height: 400px;
+  width: 700px;
 }
 .scoreBoard {
-  background-color: olivedrab;
-  width: 20%;
-  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: aliceblue;
+  width: 200px;
+  height: 150px;
+  margin: 15px;
+  border-radius: 10px;
+}
+.name {
+  margin: 0;
 }
 .gameArea {
+  justify-content: center;
+  align-items: center;
   display: flex;
-  background-color: aqua;
-  width: 40%;
-  height: 40%;
+  flex-direction: column;
+  width: 300px;
+  height: 600px;
+}
+#header {
+  margin-bottom: 50px;
+  text-emphasis: bold;
+  font-style: normal;
+}
+#wordArea {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
 }
 .spot {
-  background-color: white;
-  width: 5%;
-  height: 5%;
+  font-size: 95%;
+  width: 25px;
+  height: 25px;
   margin-top: 2px;
-  padding: 5px;
+  padding: 2px;
   margin-bottom: 0;
-  margin-left: 5px;
+  margin-left: 2px;
+  opacity: 1;
+}
+.guessedSpot {
+  font-size: 95%;
+  width: 25px;
+  height: 25px;
+  margin-top: 2px;
+  padding: 2px;
+  margin-bottom: 0;
+  margin-left: 2px;
+  opacity: 1;
 }
 .letterArea {
   display: flex;
   flex-wrap: wrap;
-  background-color: burlywood;
-  width: 40%;
-  height: 40%;
+  width: 275px;
+  height: 150px;
+  border-radius: 5px;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
 }
-.letter {
-  background-color: chartreuse;
-  height: 5%;
-  width: 5%;
-  border-radius: 10px;
+.letterButton {
+  display: flex;
+  cursor: pointer;
+  background-color: bisque;
+  justify-content: center;
+  height: 18px;
+  width: 18px;
+  border-radius: 5px;
+  margin: 0.5%;
+  font-size: 80%;
+}
+.guessedLetterButton {
+  opacity: 0;
+  pointer-events: none;
 }
