@@ -64,6 +64,10 @@ To run the Hangman game on your local machine, follow these steps:
 
 ## How to Play
 
+1. Visit this site here to checkout the game https://mvp-593n.onrender.com/
+
+or
+
 1. Open the game in a web browser.
 
 2. Click on letter buttons to guess letters in the word.
