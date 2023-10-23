@@ -14,7 +14,6 @@ This project is a simple Hangman game that allows users to guess a word by click
 - [Setup](#setup)
 - [How to Play](#how-to-play)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -55,7 +54,7 @@ To run the Hangman game on your local machine, follow these steps:
 1. Clone the repository to your local machine using Git:
 
    ```bash
-   git clone https://github.com/your-username/hangman-game.git
+   git clone https://github.com/kajiwara12/mvp.git
    ```
 
 2. Open the project folder in your preferred code editor.
@@ -82,10 +81,4 @@ or
 
 ## Contributing
 
-If you'd like to contribute to this project, please open an issue or submit a pull request on the [GitHub repository](https://github.com/your-username/hangman-game).
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-Feel free to modify and expand upon this README to provide more information about your project.
+If you'd like to contribute to this project, please open an issue or submit a pull request on the [GitHub repository](https://github.com/kajiwara12/mvp).
