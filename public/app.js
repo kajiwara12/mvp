@@ -7,6 +7,7 @@ let guessCounter = document.querySelector("#header");
 let scoreDisplay = document.querySelector("#scoreDisplay");
 let form = document.querySelector(".name-form");
 let lossScore = document.querySelector("#lossScore");
+let lastWord = document.querySelector("#lastWord");
 let globalWord = "";
 let guessWord = "";
 let attempts = 0;
@@ -48,7 +49,7 @@ function getWord() {
         let letter = document.createElement("p");
         letter.classList.add("spot");
         letter.id = wordWord[i].toUpperCase();
-        letter.innerText = "__";
+        letter.innerText = "_";
         wordArea.append(letter);
       }
     });
@@ -175,6 +176,7 @@ function checkGame() {
     } else {
       score += 3;
     }
+    lastWord.innerText = `Last word: ${globalWord}`;
     globalWord = "";
     guessWord = "";
     attempts = 0;
