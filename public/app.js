@@ -6,6 +6,7 @@ let wordArea = document.querySelector("#wordArea");
 let guessCounter = document.querySelector("#header");
 let scoreDisplay = document.querySelector("#scoreDisplay");
 let form = document.querySelector(".name-form");
+// let createUser = document.querySelector(".login");
 let lossScore = document.querySelector("#lossScore");
 let lastWord = document.querySelector("#lastWord");
 let globalWord = "";
@@ -220,17 +221,8 @@ function checkGame() {
     console.log(score);
   }
 }
-// if (globalWord.includes(letter)) {
-//   event.target.classList.add("guessedLetterButton");
-//   console.log("letter exists");
-//   let change = document.getElementById("1");
-//   change.style.opacity = 1;
-// } else {
-//   console.log("letter is not in word");
-//   event.target.classList.add("guessedLetterButton");
-//}
 
-//LeaderBoard evnetually ------------------------------------------------
+//LeaderBoard functionality ------------------------------------------------
 function updateLeaderBoard() {
   fetch("/player")
     .then((response) => {
@@ -249,7 +241,8 @@ function updateLeaderBoard() {
       }
     });
 }
-//add name and score to database-------------------------------------------------
+
+//Popup window for losing game and submitting score with name -----------------------------------------------
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   let formData = new FormData(event.target);
@@ -270,6 +263,25 @@ form.addEventListener("submit", (event) => {
       document.getElementById("popup").style.display = "none";
     });
 });
+function updateLeaderBoard() {
+  fetch("/player")
+    .then((response) => {
+      return response.json();
+    })
+    .then((players) => {
+      console.log(players);
+      for (names of document.querySelectorAll(".name")) {
+        scoreBoard.removeChild(names);
+      }
+      for (let names of players) {
+        const p = document.createElement("p");
+        p.classList.add("name");
+        let shortName = names.name.substring(0, 4).toUpperCase();
+        p.innerText = `${shortName}: ${names.score} points`;
+        scoreBoard.append(p);
+      }
+    });
+}
 
 function startPage() {
   attempts = 0;

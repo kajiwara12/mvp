@@ -2,14 +2,12 @@
   font-family: PressStart;
   src: url(PressStart2P-Regular.ttf);
 }
- {
-}
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: mediumaquamarine;
+  background-image: radial-gradient(circle, mediumaquamarine, white);
 }
 
 #container {
@@ -96,6 +94,15 @@ body {
   font-family: PressStart;
   font-size: small;
 }
+.instructions {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  font-family: PressStart;
+  font-size: small;
+}
 .letterArea {
   font-family: PressStart;
   display: flex;
@@ -121,91 +128,6 @@ body {
   margin: 0.5%;
   font-size: 75%;
 }
-
-/* .letterButton {
-  padding: 2px;
-  min-width: 8px;
-  min-height: 8px;
-  font-family: "Nunito", sans-serif;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-weight: 700;
-  color: #313133;
-  background: #4fd1c5;
-  background: linear-gradient(
-    90deg,
-    rgba(129, 230, 217, 1) 0%,
-    rgba(79, 209, 197, 1) 100%
-  );
-  border: none;
-  border-radius: 1000px;
-  box-shadow: 12px 12px 24px rgba(79, 209, 197, 0.64);
-  transition: all 0.3s ease-in-out 0s;
-  cursor: pointer;
-  outline: none;
-  position: relative;
-  padding: 10px;
-}
-
-letterButton::before {
-  content: "";
-  border-radius: 100px;
-  min-width: calc(12px);
-  min-height: calc(12px);
-  border: 6px solid #00ffcb;
-  box-shadow: 0 0 60px rgba(0, 255, 203, 0.64);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: all 0.3s ease-in-out 0s;
-}
-
-.letterButton:hover,
-.letterButton:focus {
-  color: #313133;
-  transform: translateY(-6px);
-}
-
-letterButton:hover::before,
-letterButton:focus::before {
-  opacity: 1;
-}
-
-letterButton::after {
-  content: "";
-  width: 12px;
-  height: 12px;
-  border-radius: 100%;
-  border: 6px solid #00ffcb;
-  position: absolute;
-  z-index: -1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: ring 1.5s infinite;
-}
-
-button:hover::after,
-button:focus::after {
-  animation: none;
-  display: none;
-}
-
-@keyframes ring {
-  0% {
-    width: 30px;
-    height: 30px;
-    opacity: 1;
-  }
-  100% {
-    width: 300px;
-    height: 300px;
-    opacity: 0;
-  }
-} */
 .guessedLetterButton {
   opacity: 0;
   pointer-events: none;
@@ -229,4 +151,21 @@ button:focus::after {
   display: flex;
   flex-direction: column;
   cursor: pointer;
+}
+.login {
+  display: block;
+  position: fixed;
+  height: 200px;
+  width: 710px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: seagreen;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+}
+footer {
+  padding: 80px;
 }
