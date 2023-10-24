@@ -1,3 +1,9 @@
+@font-face {
+  font-family: PressStart;
+  src: url(PressStart2P-Regular.ttf);
+}
+ {
+}
 body {
   display: flex;
   justify-content: center;
@@ -17,6 +23,8 @@ body {
   padding: 10px;
 }
 .scoreBoard {
+  font-family: PressStart;
+  font-size: small;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,6 +40,8 @@ body {
   margin: 0;
 }
 .gameArea {
+  font-family: PressStart;
+  font-size: smaller;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -42,9 +52,11 @@ body {
 #header {
   margin-bottom: 50px;
   text-emphasis: bold;
-  font-style: normal;
+  font-family: PressStart;
+  font-size: small;
 }
 #wordArea {
+  font-family: PressStart;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -79,8 +91,11 @@ body {
   flex-direction: row;
   align-content: center;
   justify-content: center;
+  font-family: PressStart;
+  font-size: small;
 }
 .letterArea {
+  font-family: PressStart;
   display: flex;
   flex-wrap: wrap;
   width: 275px;
@@ -91,15 +106,17 @@ body {
   justify-content: center;
 }
 .letterButton {
+  font-family: PressStart;
   display: flex;
   cursor: pointer;
+  align-items: center;
   background-color: bisque;
   justify-content: center;
   height: 18px;
   width: 18px;
   border-radius: 5px;
   margin: 0.5%;
-  font-size: 80%;
+  font-size: 75%;
 }
 .guessedLetterButton {
   opacity: 0;

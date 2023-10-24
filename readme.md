@@ -79,6 +79,10 @@ or
 
 6. You can enter your name and save your score to the leaderboard.
 
+## Acknowledment
+
+The font style is sourced from Google Fonts from CodeMan38 [here](https://fonts.google.com/?query=CodeMan38)
+
 ## Contributing
 
 If you'd like to contribute to this project, please open an issue or submit a pull request on the [GitHub repository](https://github.com/kajiwara12/mvp).
