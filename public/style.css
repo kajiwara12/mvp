@@ -22,6 +22,7 @@ body {
 }
 .scoreBoard {
   font-family: PressStart;
+  text-align: center;
   font-size: small;
   display: flex;
   justify-content: center;
@@ -98,6 +99,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  text-align: center;
   align-content: center;
   justify-content: center;
   font-family: PressStart;
