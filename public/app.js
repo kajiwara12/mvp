@@ -1,4 +1,3 @@
-console.log("here");
 let gameArea = document.querySelector(".gameArea");
 let letterArea = document.querySelector(".letterArea");
 let scoreBoard = document.querySelector(".scoreBoard");
@@ -66,7 +65,7 @@ function checkLetter(event) {
       spots.innerText = letter;
       guessWord += letter;
       letterInWord = true;
-      console.log(guessWord);
+
       guessDisplay();
       displayScore();
       checkGame();
@@ -75,7 +74,7 @@ function checkLetter(event) {
   if (!letterInWord) {
     attempts++;
     drawChar(attempts);
-    console.log("letter is not in word");
+
     event.target.classList.add("guessedLetterButton");
     guessDisplay();
     displayScore();
@@ -169,7 +168,6 @@ function displayScore() {
 function checkGame() {
   //win----------------------
   if (guessWord.length === globalWord.length) {
-    console.log("you win");
     if (globalWord.length === 5) {
       score++;
     } else if (globalWord.length === 6) {
@@ -193,12 +191,11 @@ function checkGame() {
       letterArea.removeChild(gussedLetterButtons);
     }
     displayScore();
-    console.log(score);
+
     startPage();
   }
   //loss----------------------------------------------------------------------
   if (attempts === 6) {
-    console.log("you lose");
     globalWord = "";
     guessWord = "";
     //popup for when they lose
@@ -218,7 +215,6 @@ function checkGame() {
     )) {
       letterArea.removeChild(gussedLetterButtons);
     }
-    console.log(score);
   }
 }
 
@@ -229,7 +225,6 @@ function updateLeaderBoard() {
       return response.json();
     })
     .then((players) => {
-      console.log(players);
       for (names of document.querySelectorAll(".name")) {
         scoreBoard.removeChild(names);
       }
@@ -257,7 +252,6 @@ form.addEventListener("submit", (event) => {
   })
     .then((response) => response.json())
     .then((name) => {
-      console.log("created name:", name);
       score = 0;
       startPage();
       document.getElementById("popup").style.display = "none";
@@ -269,7 +263,6 @@ function updateLeaderBoard() {
       return response.json();
     })
     .then((players) => {
-      console.log(players);
       for (names of document.querySelectorAll(".name")) {
         scoreBoard.removeChild(names);
       }
